@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>❤️Heart Transplant Prediction</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1 class="glassy-title">❤️ Heart Transplant Prediction</h1>
+    <div style="text-align:right; margin-bottom:20px;">
+      <a href="{{ url_for('logout') }}" 
+   class="glassy-btn" 
+   style="background:#d8000c; color:white; width:8%; position:absolute; top:10px; right:10px; text-align:center;">
+   Logout
+</a>
+
+    </div>
+
+    <form id="prediction-form">
+
+      <!-- Recipient Information Card -->
+      <div class="glassy-card form-card">
+        <h2 class="section-title">Recipient Information</h2>
+        <div class="form-grid">
+          <div><label>Age</label><input type="number" name="age" required></div>
+          <div><label>Sex</label>
+            <select name="sex" required>
+              <option value="" selected disabled hidden>-- Select Sex --</option>
+              <option>Male</option><option>Female</option>
+            </select>
+          </div>
+          <div><label>Weight (kg)</label><input type="number" name="weight_kg" step="0.1" required></div>
+          <div><label>Height (cm)</label><input type="number" name="height_cm" step="0.1" required></div>
+          <div><label>Diabetes</label>
+            <select name="diabetes" required>
+              <option value="" selected disabled hidden>-- Select --</option>
+              <option>No</option><option>Yes</option>
+            </select>
+          </div>
+          <div><label>Hypertension</label>
+            <select name="hypertension" required>
+              <option value="" selected disabled hidden>-- Select --</option>
+              <option>No</option><option>Yes</option>
+            </select>
+          </div>
+          <div><label>Renal Dysfunction</label>
+            <select name="renal_dysfunction" required>
+              <option value="" selected disabled hidden>-- Select --</option>
+              <option>No</option><option>Yes</option>
+            </select>
+          </div>
+          <div><label>Prior Heart Surgery</label>
+            <select name="prior_heart_surgery" required>
+              <option value="" selected disabled hidden>-- Select --</option>
+              <option>No</option><option>Yes</option>
+            </select>
+          </div>
+          <div><label>HLA Mismatch Score (0-10)</label><input type="number" name="hla_mismatch_score" step="0.1"></div>
+          <div><label>PRA Level (0-100)</label><input type="number" name="pra_level" step="0.1"></div>
+          <div><label>Recipient Blood Type</label>
+            <select name="recipient_blood_type" required>
+              <option value="" selected disabled hidden>-- Select Blood Type --</option>
+              <option>O</option><option>A</option><option>B</option><option>AB</option>
+            </select>
+          </div>
+          <div><label>Smoking History</label>
+            <select name="smoking_history" required>
+              <option value="" selected disabled hidden>-- Select --</option>
+              <option>No</option><option>Yes</option>
+            </select>
+          </div>
+          <div><label>Alcohol Use</label>
+            <select name="alcohol_use" required>
+              <option value="" selected disabled hidden>-- Select --</option>
+              <option>No</option><option>Yes</option>
+            </select>
+          </div>
+          <div><label>Income Bracket</label>
+            <select name="income_bracket" required>
+              <option value="" selected disabled hidden>-- Select Income --</option>
+              <option>Low</option><option>Middle</option><option>High</option>
+            </select>
+          </div>
+          <div><label>Family Support Score (0-5)</label><input type="number" name="family_support_score" step="0.1"></div>
+          <div><label>Nutrition Score (0-10)</label><input type="number" name="nutrition_score" step="0.1"></div>
+          <div><label>Transplant Year</label><input type="number" name="transplant_year" value="2020"></div>
+          <div><label>Wait Time (days)</label><input type="number" name="wait_time_days"></div>
+          <div><label>Transplant Type</label>
+            <select name="transplant_type" required>
+              <option value="" selected disabled hidden>-- Select Transplant Type --</option>
+              <option>Elective</option><option>Urgent</option>
+            </select>
+          </div>
+          <div><label>Mechanical Support Before TX</label>
+            <select name="mechanical_support_before_tx" required>
+              <option value="" selected disabled hidden>-- Select --</option>
+              <option>No</option><option>Yes</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Donor Information Card -->
+      <div class="glassy-card form-card">
+        <h2 class="section-title">Donor Information</h2>
+        <div class="form-grid">
+          <div><label>Donor Age</label><input type="number" name="donor_age"></div>
+          <div><label>Donor Blood Type</label>
+            <select name="donor_blood_type" required>
+              <option value="" selected disabled hidden>-- Select Blood Type --</option>
+              <option>O</option><option>A</option><option>B</option><option>AB</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" class="glassy-btn full-width">Predict</button>
+    </form>
+
+    <div id="results" class="glassy-card results-card" style="display:none; margin-top:20px;"></div>
+  </div>
+
+  <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</body>
+</html>

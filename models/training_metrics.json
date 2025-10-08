@@ -1,0 +1,87 @@
+{
+  "classification": {
+    "survived_1_year": {
+      "cv_auc_mean": 0.6441391537198434,
+      "cv_auc_std": 0.015687734759815868,
+      "test_auc": 0.6784,
+      "accuracy": 0.865,
+      "precision": 0.8854166666666666,
+      "recall": 0.9714285714285714,
+      "f1": 0.9264305177111717,
+      "confusion_matrix": [
+        [
+          3,
+          22
+        ],
+        [
+          5,
+          170
+        ]
+      ]
+    },
+    "survived_5_years": {
+      "cv_auc_mean": 0.6385524462066738,
+      "cv_auc_std": 0.02593350880770088,
+      "test_auc": 0.62858934169279,
+      "accuracy": 0.705,
+      "precision": 0.76875,
+      "recall": 0.8482758620689655,
+      "f1": 0.8065573770491803,
+      "confusion_matrix": [
+        [
+          18,
+          37
+        ],
+        [
+          22,
+          123
+        ]
+      ]
+    },
+    "rejection_within_1yr": {
+      "cv_auc_mean": 0.5831147606994938,
+      "cv_auc_std": 0.05613648089780447,
+      "test_auc": 0.54984375,
+      "accuracy": 0.73,
+      "precision": 0.15,
+      "recall": 0.075,
+      "f1": 0.1,
+      "confusion_matrix": [
+        [
+          143,
+          17
+        ],
+        [
+          37,
+          3
+        ]
+      ]
+    }
+  },
+  "regression": {
+    "quality_of_life_score": {
+      "cv_rmse_mean": 1.5417157124172234,
+      "cv_rmse_std": 0.07474297516219834,
+      "test_rmse": 1.5104189467138862,
+      "test_r2": -0.34324395656585693,
+      "test_mae": 1.2316648960113525
+    },
+    "rehospitalizations_in_1yr": {
+      "cv_rmse_mean": 1.2992648247520346,
+      "cv_rmse_std": 0.08849227005652854,
+      "test_rmse": 1.210662515243129,
+      "test_r2": -0.2570626735687256,
+      "test_mae": 0.9946286082267761
+    },
+    "survival_time_months": {
+      "cv_rmse_mean": 33.97362138321497,
+      "cv_rmse_std": 1.026543860465096,
+      "test_rmse": 33.76674208587127,
+      "test_r2": -0.21311461925506592,
+      "test_mae": 26.912521362304688
+    }
+  },
+  "meta": {
+    "generated_at": "2025-09-24 05:21:35.912627"
+  }
+}

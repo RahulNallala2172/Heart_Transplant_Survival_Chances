@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1 class="glassy-title">📝 Sign Up</h1>
+    {% if error %}
+      <div class="error-alert glassy-card animated-card" style="color:#d8000c;background:rgba(255,255,255,0.7);border:1px solid #d8000c;padding:12px;margin-bottom:18px;text-align:center;font-weight:600;">
+        {{ error }}
+      </div>
+    {% endif %}
+  <form action="{{ url_for('signup') }}" method="post" class="glassy-card animated-card" style="max-width:500px;margin:auto;">
+
+      <div class="form-grid">
+        <div>
+          <label>Name</label>
+          <input type="text" name="name" required>
+        </div>
+
+        <div>
+          <label>Email</label>
+          <input type="email" name="email" required>
+        </div>
+
+        <div>
+          <label>Password</label>
+          <input type="password" name="password" required>
+        </div>
+
+        <div>
+          <label>Confirm Password</label>
+          <input type="password" name="confirm_password" required>
+        </div>
+      </div>
+
+      <button type="submit" class="glassy-btn">Sign Up</button>
+
+      <p style="text-align:center;margin-top:20px;">
+        Already have an account? 
+        <a href="{{ url_for('login') }}" style="color:#00c6ff;text-decoration:none;">Login here</a>
+      </p>
+    </form>
+  </div>
+</body>
+</html>

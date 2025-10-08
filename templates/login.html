@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1 class="glassy-title">🔒 Login</h1>
+
+    <!-- FIXED ACTION + METHOD -->
+    <form action="{{ url_for('login') }}" method="post" 
+          class="glassy-card animated-card" style="max-width:500px;margin:auto;">
+
+      <div class="form-grid">
+        <div>
+          <label>Email</label>
+          <input type="email" name="email" required>
+        </div>
+
+        <div>
+          <label>Password</label>
+          <input type="password" name="password" required>
+        </div>
+      </div>
+
+      <button type="submit" class="glassy-btn">Login</button>
+
+      <p style="text-align:center;margin-top:20px;">
+        New here? 
+        <a href="{{ url_for('signup') }}" style="color:#00c6ff;text-decoration:none;">
+          Create an account
+        </a>
+      </p>
+    </form>
+  </div>
+
+  {% if error %}
+    <div id="errorModal" class="modal" style="display:block;">
+      <div class="modal-content">
+        <span class="close" onclick="document.getElementById('errorModal').style.display='none'">&times;</span>
+        <p>{{ error }}</p>
+      </div>
+    </div>
+    <style>
+      .modal {
+        position: fixed;
+        z-index: 9999;
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        overflow: auto;
+        background: rgba(20,30,48,0.45);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .modal-content {
+        background: rgba(255,255,255,0.95);
+        color: #d8000c;
+        border-radius: 16px;
+        padding: 32px 24px;
+        box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);
+        text-align: center;
+        font-size: 1.2rem;
+        font-weight: 600;
+        position: relative;
+        min-width: 320px;
+        max-width: 90vw;
+      }
+      .close {
+        position: absolute;
+        top: 12px;
+        right: 18px;
+        font-size: 2rem;
+        color: #d8000c;
+        cursor: pointer;
+        font-weight: bold;
+      }
+    </style>
+  {% endif %}
+</body>
+</html>

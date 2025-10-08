@@ -1,0 +1,273 @@
+/* === GENERAL === */
+body {
+  background: linear-gradient(135deg, #141e30 0%, #243b55 100%);
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 40px 20px;
+  color: #fff;
+  overflow-x: hidden;
+  position: relative;
+}
+
+body.animated-bg {
+  background-size: 200% 200%;
+  animation: gradientMove 12s ease-in-out infinite alternate;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* === CONTAINER === */
+.container {
+  max-width: 1200px;
+  width: 100%;
+}
+
+/* === TITLE === */
+.glassy-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 40px;
+  text-shadow: 0 4px 24px rgba(0,0,0,0.5);
+  animation: fadeInDown 1s;
+}
+
+/* === SECTION TITLES === */
+.section-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #00c6ff;
+  margin-bottom: 28px;
+  text-align: center;
+  text-shadow: 0 2px 12px rgba(0,198,255,0.25);
+}
+
+/* === GLASSY CARD === */
+.glassy-card {
+  background: rgba(255,255,255,0.08);
+  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,0.18);
+  padding: 40px 30px;
+  width: 100%;
+  transition: box-shadow 0.3s, transform 0.3s;
+  margin-bottom: 40px;
+}
+
+.glassy-card:hover {
+  box-shadow: 0 12px 48px rgba(0,0,0,0.5);
+  transform: translateY(-2px);
+}
+
+.animated-card {
+  animation: fadeInUp 1.2s;
+}
+
+/* === FORM GRID === */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px 40px;
+  margin-bottom: 30px;
+}
+
+.form-grid div {
+  display: flex;
+  flex-direction: column;
+  position: relative; /* for dropdown arrow on selects */
+}
+
+.form-grid label {
+  font-weight: 600;
+  color: #e0e0e0;
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+}
+
+/* === INPUTS + SELECT === */
+.form-grid input,
+.form-grid select {
+  width: 90%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: none;
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  font-size: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  outline: none;
+  transition: background 0.25s, transform 0.2s;
+}
+
+.form-grid input:focus,
+.form-grid select:focus {
+  background: rgba(255,255,255,0.28);
+  transform: scale(1.02);
+}
+
+/* === DROPDOWN (SELECT) STYLING === */
+.form-grid select {
+  /* Hide default arrow */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding: 12px 40px 12px 14px; /* space for custom arrow */
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* ✅ Add a class only to dropdown wrappers */
+.form-grid .select-wrapper {
+  position: relative;
+}
+
+/* ✅ Add a custom arrow only on select-wrapper */
+.form-grid .select-wrapper::after {
+  content: '▼';
+  position: absolute;
+  right: 16px;
+  top: 42px; /* adjust for field height */
+  pointer-events: none;
+  font-size: 0.8rem;
+  color: #00c6ff;
+  opacity: 0.7;
+  transition: transform 0.3s;
+}
+
+.form-grid .select-wrapper:hover::after {
+  transform: translateY(2px);
+  opacity: 1;
+}
+
+/* Make sure dropdown menu background is dark */
+.form-grid option {
+  background: #243b55;  /* dropdown menu background */
+  color: #ffffff;
+  padding: 8px;
+}
+
+/* Grey out the placeholder option */
+.form-grid select option[value=""] {
+  color: #aaa;
+}
+     
+
+/* === BUTTON === */
+.glassy-btn {
+  display: inline-block;
+  background: linear-gradient(90deg, #00c6ff 0%, #0072ff 100%);
+  color: #fff;
+  font-weight: 700;
+  border: none;
+  border-radius: 14px;
+  padding: 14px 40px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0,198,255,0.28);
+  transition: background 0.3s, transform 0.3s;
+  margin-top: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.glassy-btn:hover {
+  background: linear-gradient(90deg, #0072ff 0%, #00c6ff 100%);
+  transform: translateY(-3px) scale(1.04);
+}
+
+/* === RESULTS === */
+.results-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 18px;
+  text-shadow: 0 2px 12px rgba(0,198,255,0.12);
+}
+
+.results-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.result-item {
+  margin-bottom: 14px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(0,198,255,0.08);
+  font-weight: 500;
+  font-size: 1.12rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.result-label {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.result-value {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #ffffff;
+}
+
+/* === ANIMATIONS === */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* === FLOATING GRADIENT BLOBS (Background effect) === */
+body::before {
+  content: '';
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle at center, rgba(0,198,255,0.25), transparent 70%);
+  top: 20%;
+  left: -150px;
+  filter: blur(120px);
+  animation: float1 10s ease-in-out infinite alternate;
+  z-index: -1;
+}
+
+body::after {
+  content: '';
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle at center, rgba(255,0,128,0.25), transparent 70%);
+  bottom: 10%;
+  right: -150px;
+  filter: blur(120px);
+  animation: float2 12s ease-in-out infinite alternate;
+  z-index: -1;
+}
+
+@keyframes float1 {
+  0% { transform: translateY(0) translateX(0); }
+  100% { transform: translateY(40px) translateX(60px); }
+}
+
+@keyframes float2 {
+  0% { transform: translateY(0) translateX(0); }
+  100% { transform: translateY(-40px) translateX(-60px); }
+}
